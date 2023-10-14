@@ -1,5 +1,5 @@
 ﻿// Isac Elfstrand SUT23
-using System.ComponentModel.Design;
+using System;
 
 namespace ATM
 {
@@ -48,23 +48,50 @@ namespace ATM
                         break;
                     }
                 }
-            }
-
-            
-            static int LogIn(string username, string pin, string[] usernames, string[] pins)
-            {
-                for (int i = 0; i < usernames.Length; i++)
+                while (loggedIn)
                 {
-                    if (username == usernames[i] && pin == pins[i])
+                    Console.WriteLine("Choose from the menu:");
+                    Console.WriteLine("[1] Accounts & Balance");
+                    Console.WriteLine("[2] Transfer money");
+                    Console.WriteLine("[3] Withdraw money");
+                    Console.WriteLine("[4] Log out");
+                    int choice = Convert.ToInt32(Console.ReadLine());
+
+                    switch (choice)
                     {
-                        return i;
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                        default:
+                            Console.WriteLine("Error, wrong input.");
+                            continue;
                     }
+                    Console.WriteLine("Press Enter to return to the main menu.");
+                    Console.ReadLine();
+                    Console.Clear();
                 }
-                return -1;
             }
-
-
-
         }
+
+
+        static int LogIn(string username, string pin, string[] usernames, string[] pins)
+        {
+            for (int i = 0; i < usernames.Length; i++)
+            {
+                if (username == usernames[i] && pin == pins[i])
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+                 
+        } 
     }
-}
+}  
