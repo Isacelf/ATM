@@ -1,4 +1,6 @@
 ﻿// Isac Elfstrand SUT23
+using System.ComponentModel.Design;
+
 namespace ATM
 {
     internal class Program
@@ -17,6 +19,51 @@ namespace ATM
             var username = "";
             var pin = "";
             int currentUserIndex = -1;
+
+            while (true)
+            {
+                while (attempts > 0 && !loggedIn)
+                {
+                    Console.WriteLine("Please enter your username: ");
+                    username = Console.ReadLine().ToLower();
+                    Console.WriteLine("Please enter your PIN Code: ");
+                    pin = Console.ReadLine();
+
+                    currentUserIndex = LogIn(username, pin, usernames, pins);
+                    if (currentUserIndex >= 0)
+                    {
+                        Console.WriteLine("Login Succesful");
+                        loggedIn = true;
+                        Console.Clear();
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        attempts--;
+                        Console.WriteLine($"Login failed, you have [{attempts}] attempts left. ");
+                    }
+                    if (attempts == 0)
+                    {
+                        Console.WriteLine("Too many failed login attempts");
+                        break;
+                    }
+                }
+            }
+
+            
+            static int LogIn(string username, string pin, string[] usernames, string[] pins)
+            {
+                for (int i = 0; i < usernames.Length; i++)
+                {
+                    if (username == usernames[i] && pin == pins[i])
+                    {
+                        return i;
+                    }
+                }
+                return -1;
+            }
+
+
 
         }
     }
