@@ -60,12 +60,16 @@ namespace ATM
                     switch (choice)
                     {
                         case 1:
+                            Accounts(username, accountTypes, currentUserIndex, balances);
                             break;
                         case 2:
+                            TransferMoney(username, accountTypes, currentUserIndex, balances);
                             break;
                         case 3:
+                            WithdrawMoney(username, accountTypes, currentUserIndex, balances, pins);
                             break;
                         case 4:
+                            LogOut();
                             break;
                         default:
                             Console.WriteLine("Error, wrong input.");
@@ -91,7 +95,31 @@ namespace ATM
             return -1;
         }
 
-                 
-        } 
+        static void Accounts(string username, string[] accountTypes, int currentUserIndex, double[] balances)
+        {
+
+        }
+
+        static void TransferMoney(string username, string[] accountTypes, int currentUserIndex, double[] balances)
+        {
+
+        }
+
+        static void WithdrawMoney(string username, string[] accountTypes, int currentUserIndex, double[] balances, string[] pins)
+        {
+
+        }
+
+        static void LogOut()
+        {
+
+        }
+
+
+
+
+
+
+        }
     }
 }  
