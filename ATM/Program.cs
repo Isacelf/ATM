@@ -6,7 +6,7 @@ namespace ATM
     internal class Program
     {
         static bool loggedIn = false; // Variabel för att hålla reda på om användaren är inloggad
-        static double[] balances = { 2000, 320.45, 160.8, 790, 577.8, 7000, 456.3, 6000, 731.78, 2500 };// Array som håller användarnas kontosaldo
+        static double[] balances = { 2000, 320.45, 160.8, 790, 577.8, 7000, 456.3, 6000, 731.78, 2500 }; // Array som håller användarnas kontosaldo
 
 
         static void Main(string[] args)
@@ -204,7 +204,7 @@ namespace ATM
                         }
                         else // Den sista delen av koden i funktionen hanterar olika scenarior vid fel med uttag, inte tillräckligt med pengar, fel pin-kod, fel konto med mera.
                         {
-                            Console.WriteLine($"You do not have enough funds in your {accountTypes[selectedAccountIndex]} account.");
+                            Console.WriteLine($"You do not have enough funds in your {accountTypes[selectedAccountIndex]}.");
                         }
                     }
                     else
